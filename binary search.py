@@ -1,0 +1,23 @@
+def binary_search(arr,low,high,x):
+	if high>=low:
+		mid=(high+low)//2
+		if arr[mid]==x:
+			return mid
+		elif arr[mid]>x:
+			return binary_search(arr,low,mid-1,x)
+		else:
+			return binary_search(arr,mid+1,high,x)
+	else:
+		return -1
+arr=[]
+n=int(input("enter the size of array"))
+for i in range(0,n):
+	x=int(input("enter the elements into array"))
+	arr.append(x)
+print(arr)
+x=int(input("enter any number of above array"))
+result=binary_search(arr,0,len(arr)-1,x)
+if result!=1:
+	print("element is present at index",str(result))
+else:
+	print("element is present in array")			
